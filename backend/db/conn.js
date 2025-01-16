@@ -1,12 +1,13 @@
 //connection 
-
+require('dotenv').config();
 const { Client } = require('pg');
 const client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'blogdb',
-    password: '',
-    port: 5432,
+    user: process.env.PG_URL,
+    host: process.env.PG_HOST,
+    database: process.env.PG_DB,
+    password: process.env.PG_PASS,
+    port: process.env.PG_PORT,
+    ssl:{rejectUnauthorized:false}
 });
 
 async function check(){
