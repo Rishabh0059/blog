@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiURL = 'http://localhost:3000';
+const apiURL = 'https://blogapp-pern.onrender.com';
 
 export const getBlogs = (cat) => {
     // return blogs

@@ -16,10 +16,10 @@ const Createblog = () => {
 
     const handleUpload = async (event) => {
         let uploadedFile = await uploadFile(event.target.files[0]);
-        if(uploadedFile.path){
-            setNewblog({...newblog,image:uploadedFile.path});
+        if(uploadedFile.path){  
+            setNewblog({...newblog, image: uploadedFile.path}); // Cloudinary returns a public URL
         }
-    }
+    };
 
     const handleSubmit = async () => {
         let createdBlog = await createBlog(newblog);
@@ -47,7 +47,7 @@ const Createblog = () => {
                     <select value={newblog.category} onChange={(e) => setNewblog({...newblog,category:e.target.value})} name="" id="" className='h-10 border border-gray-300 rounded my-2 p-2'>
                         <option value="" default disabled>Select Category</option>
                         {menu.map(x => {
-                            return <option value={x.text}>{x.text}</option>
+                            return <option value={x.text} key={x.text}>{x.text}</option>
                         })}
                     </select>
                     <label htmlFor="" className='ml-1 text-gray-500'>Image</label>
